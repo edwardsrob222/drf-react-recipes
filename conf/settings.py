@@ -25,7 +25,7 @@ SECRET_KEY = '(dpl)k*jz_x3_=k*z#obx3_gv!1^eo)i(r5bcq*kz-qk5d$har'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
