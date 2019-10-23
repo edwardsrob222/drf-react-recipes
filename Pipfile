@@ -15,6 +15,7 @@ djangorestframework = "*"
 boto3 = "*"
 django-storages = "*"
 pillow = "*"
+django-rest-auth = "*"
 
 [requires]
 python_version = "3.7"

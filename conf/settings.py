@@ -42,12 +42,23 @@ INSTALLED_APPS = [
 
     #3rd party
     'rest_framework',
+    'rest_framework.authtoken',
+    'rest_auth',
 
     #local
     'api.apps.ApiConfig',
     'frontend.apps.FrontendConfig',
     'recipes.apps.RecipesConfig',
+    'accounts.apps.AccountsConfig',
     ]
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ]
+}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
