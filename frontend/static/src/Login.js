@@ -4,7 +4,7 @@ import axios from 'axios';
   axios.defaults.xsrfCookieName = 'csrftoken';
   axios.defaults.xsrfHeaderName = 'X-CSRFToken';
 
-  class Login extends Components {
+  class Login extends Component {
     login = (e) => {
       e.preventDefault();
 
@@ -17,7 +17,7 @@ import axios from 'axios';
       axios.post('/api/v1/rest-auth/login/', user)
       .then(res => {
         console.log(res);
-        Local
+        localStorage.setItem("my-app-key", res.data.key)
       })
       .catch(error => {
         console.log(error)

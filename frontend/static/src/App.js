@@ -14,7 +14,13 @@ class App extends Component {
       title: '',
       image: null,
       preview: null,
-      recipes: []
+      recipes: [],
+      cook_method: '',
+      cook_time: '',
+      prep_time: '',
+      cook_temp: '',
+      ingredients: '',
+
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -43,6 +49,11 @@ class App extends Component {
     let formData = new FormData();
     formData.append('title', this.state.title);
     formData.append('image', this.state.image);
+    formData.append('cook_method', this.state.cook_method);
+    formData.append('cook_time', this.state.cook_time);
+    formData.append('prep_time', this.state.prep_time);
+    formData.append('cook_temp', this.state.cook_temp);
+    formData.append('ingredients', this.state.ingredients);
 
     axios.post('/api/v1/recipes/', formData, {
       headers: {
@@ -55,7 +66,7 @@ class App extends Component {
 
       this.setState({title: '', preview: null, image: null});
     })
-    .catch(error => {  
+    .catch(error => {
       console.log(error)
     });
   }
@@ -84,6 +95,12 @@ class App extends Component {
         <form onSubmit={this.handleSubmit}>
           <input type='text' name='title' value={this.state.title} onChange={this.handleChange}/>
           <input type='file' name='image' onChange={this.handleImageChange}/>
+          <input type='text' name='cook_method' value={this.state.cook_method} onChange={this.handleChange}/>
+          <input type='text' name='cook_time' value={this.state.cook_time} onChange={this.handleChange}/>
+          <input type='text' name='prep_time' value={this.state.prep_time} onChange={this.handleChange}/>
+          <input type='text' name='cook_temp' value={this.state.cook_temp} onChange={this.handleChange}/>
+          <input type='text' name='ingredients' value={this.state.ingredients} onChange={this.handleChange}/>
+
 
           {this.state.image ? (
             <img src={this.state.preview} alt='preview'/>
